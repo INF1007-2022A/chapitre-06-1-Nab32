@@ -3,19 +3,29 @@
 
 
 def order(values: list = None) -> list:
+    
     if values is None:
+        values=[]
         # TODO: demander les valeurs ici
-        pass
-
-    return []
-
+        while len(values)<10:
+            values.append(input("enter value"))
+        nbr_list=[float(value) for value in values if value.isdigit()]
+        str_list=[value for value in values if not values.isdigit()]
+    return sorted(nbr_list) + sorted(str_list)
 
 def anagrams(words: list = None) -> bool:
     if words is None:
-        # TODO: demander les mots ici
-        pass
+        words=[]
+        while len(words)<2:
+            words.append(input("Write string"))
+        
+        if len(words[0])!=len(words[1]):
+            return False
+        for i in len(words[0]):
+            if words[0][i] != words[1][len(words[0])-1-i]:
+                return False
 
-    return False
+    return True
 
 
 def contains_doubles(items: list) -> bool:
