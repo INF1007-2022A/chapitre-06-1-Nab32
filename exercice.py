@@ -29,19 +29,42 @@ def anagrams(words: list = None) -> bool:
 
 
 def contains_doubles(items: list) -> bool:
+    items = sorted(items)
+
+    for i in range(1,len(items)):
+        if items[i]==items[i-1]:
+            return True
+    
     return False
+    
 
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    return {}
+    maxgrade=0
+    best_student={}
+    for key, values in student_grades.items():
+        average=sum(values)/len(values)
+
+        if average>maxgrade:
+            best_student={key: average}
+            maxgrade=average
+
+    
+    return best_student
+    
 
 
 def frequence(sentence: str) -> dict:
     # TODO: Afficher les lettres les plus fréquentes
     #       Retourner le tableau de lettres
 
-    return {}
+    sentence=sorted(sentence)
+    repeatedletters={}
+
+    for i in range(len(sentence)):
+        repeatedletters[i]+=1
+    return repeatedletters
 
 
 def get_recipes():
@@ -57,11 +80,6 @@ def print_recipe(ingredients) -> None:
 def main() -> None:
 
 
-    print(f"On vérifie les anagrammes...")
-    print(anagrams())
-
-    my_list = [3, 3, 5, 6, 1, 1]
-    print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
 
     grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
     best_student = best_grades(grades)

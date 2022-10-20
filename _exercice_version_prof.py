@@ -39,6 +39,8 @@ def best_grades(student_grades: dict) -> dict:
         if len(best_student) == 0 or list(best_student.values())[0] < average:
             best_student = {key: average}
 
+
+    print(best_student)
     return best_student
 
 
@@ -56,6 +58,8 @@ def frequence(sentence: str) -> dict:
         if frequency[key] > 5:
             print(f"Le caractère {key} revient {frequency[key]} fois.")
 
+
+    
     return frequency
 
 
@@ -80,15 +84,9 @@ def print_recipe(ingredients) -> None:
 
 
 def main() -> None:
-    print(f"On essaie d'ordonner les valeurs...")
-    print(order())
 
-    print(f"On vérifie les anagrammes...")
-    print(anagrams())
 
-    my_list = [3, 3, 5, 6, 1, 1]
-    print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
-
+    
     grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
     best_student = best_grades(grades)
     print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
