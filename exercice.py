@@ -21,7 +21,7 @@ def anagrams(words: list = None) -> bool:
         
         if len(words[0])!=len(words[1]):
             return False
-        for i in len(words[0]):
+        for i in range(len(words[0])):
             if words[0][i] != words[1][len(words[0])-1-i]:
                 return False
 
@@ -55,11 +55,10 @@ def print_recipe(ingredients) -> None:
 
 
 def main() -> None:
-    print(f"On essaie d'ordonner les valeurs...")
-    order()
+
 
     print(f"On vérifie les anagrammes...")
-    anagrams()
+    print(anagrams())
 
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
